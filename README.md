@@ -11,8 +11,7 @@ Its purposes were:
 
 Basic Installation Instructions
 -------------------------------
-* Rename htaccess to .htaccess and adjust RewriteBase if neccessary
-* Edit configuration files in application/config (See also [CodeIgniter installation instructions](http://ellislab.com/codeigniter/user-guide/installation/index.html))
+* Follow the [install instructions for CodeIgniter](https://ellislab.com/codeigniter/user-guide/installation/index.html)
 * Init database using install/init_database.sql (Adjust table prefix if neccessary)
 * Fill tables in database (For many tables there is no editing frontend available yet)
 * Adjust application to your needs (Edit views, styles, scripts, etc. or add new functionality)
