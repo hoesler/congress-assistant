@@ -1,0 +1,34 @@
+@import "_shared";
+
+#slide_editor_app {
+	#left {
+		width: 30%;
+		float: left;
+		overflow: hidden;
+		
+		ul#slideList {
+			list-style: none;
+			padding: 0;
+			margin: 10px;
+			
+			li.bse_slide {
+				border: 1px solid @darkBlue;
+				background-color: @lightBlue;
+				padding: 4px;
+				cursor: pointer;
+				
+				.delete {
+					float: right;
+				}
+				
+				&.selected {
+					border-color: yellow;
+				}
+			}
+		}
+	}
+	
+	#right {
+		overflow: hidden;
+	}
+}

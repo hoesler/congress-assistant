@@ -1,0 +1,31 @@
+@lightBlue: #EBF7FD;
+@mediumBlue: #1A2A7E;
+@darkBlue: #0767A4;
+
+@grey: #666;
+@lightGrey: #CCC;
+@mediumGrey: #AAA;
+
+.rounded-corners (@tl: 5px, @tr: 5px, @br: 5px, @bl: 5px) {
+  -webkit-border-top-left-radius: @tl;
+  -webkit-border-top-right-radius: @tr;
+  -webkit-border-bottom-right-radius: @br;
+  -webkit-border-bottom-left-radius: @bl;
+  
+  -moz-border-radius-topleft: @tl;
+  -moz-border-radius-topright: @tr;
+  -moz-border-radius-bottomright: @br;
+  -moz-border-radius-bottomleft: @bl;
+  
+  border-top-left-radius: @tl;
+  border-top-right-radius: @tr;
+  border-bottom-right-radius: @br;
+  border-bottom-left-radius: @bl;
+}
+
+.opacity(@opacity: 0.5) {
+	-moz-opacity: @opacity;
+	-khtml-opacity: @opacity;
+	-webkit-opacity: @opacity;
+	opacity: @opacity;
+}

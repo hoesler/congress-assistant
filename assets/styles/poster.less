@@ -1,0 +1,122 @@
+@import "_shared";
+
+#poster_app {
+	overflow: auto;
+	
+	.left {
+		width: 40%;
+		padding-right: 3em;
+		float: left;
+		
+		h3 input {
+			float: right;
+		}
+	}
+	
+	.right {
+	overflow: auto;
+	}
+}
+
+#poster_app ol#selected_participants {
+	margin: 0;
+	padding: 0 0 0 0em;
+	list-style: none;
+	list-style-position: inside;
+	li {
+		margin-bottom: 0.2em;
+		padding-left: 0em;
+		clear: both;
+		overflow: auto;
+		
+		.info {
+			font-size: 8pt;
+			float: left;
+		}
+		
+		.remove {
+			float: right;
+			
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		
+		&:hover {
+			background-color: @lightBlue;
+		}
+	}
+}
+
+#poster_app #alphabet_selector {
+	list-style: none;
+	display: block;
+	margin: 0.2em 0 0 0;
+	padding: 0;
+	overflow: auto;
+	
+	li.letter {
+		width: 1.2em;
+		height: 1.2em;
+		text-align: center;
+		vertical-align: middle;
+		float: left;
+		border: 1px solid @lightGrey;
+		background-color: @lightBlue;
+		color: @darkBlue;
+		
+		&.active {
+			color: white;
+			background-color: @darkBlue;
+		}
+		
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+#poster_app ul#participants {
+	display: block;
+	list-style: none;
+	clear: both;
+	padding: 0;
+	margin: 1em 0 0 0;
+	height: 300px;
+	overflow: auto;
+	
+	li {
+		padding-bottom: 0.3em;
+		
+		&:nth-child(even) {
+			background-color: @lightBlue;
+		}
+		input {
+			float: left;
+		}
+		
+		@marL: 0em;
+		.name {
+			margin-left: @marL;
+		}
+		.info {
+			margin-left: @marL;
+			font-size: 8pt;
+			overflow: auto;
+		}
+	}
+}
+
+#poster_app #search {
+	input {
+		display: block;
+		margin: 0.2em 0 0 0;
+		
+	}
+}
+
+table.orals {
+	tr.done {
+		color: @lightGrey;
+	}
+}

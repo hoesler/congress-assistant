@@ -1,0 +1,170 @@
+@import "_shared";
+
+body {
+	background-color: @lightBlue;
+	color: @grey;
+	font: 14px , Futura;
+}
+
+h1 {
+	color: @darkBlue;
+	font-size: 1.2em;
+}
+
+a {
+	color: @darkBlue;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.newline {
+	clear: both;
+}
+
+ul.plain {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.centeredMainCloumn {
+	width: 974px;
+	margin: 0em auto;
+	clear: both;
+	border: solid 1px @lightGrey;
+}
+
+#header {
+	.centeredMainCloumn;
+	height: 205px;
+	border-bottom: 0px;
+	margin-top: 1.2em;
+	background-color: @darkBlue;
+}
+
+#content {
+	.centeredMainCloumn;
+	font-family: Tahoma,Geneva,sans-serif;
+	background-color: white;
+	padding: 0.5em 0;
+	border-top: 0px;
+	border-bottom: 0px;
+	overflow: auto;
+}
+
+#footer {
+	font-size: small;
+	.centeredMainCloumn;
+	background-color: white;
+	border-top: 0px;
+	padding: 2em 0 1em 0;
+	text-align: center;
+}
+
+.icons {
+	float: left;
+	margin-right: 1em;
+	width: 10px;
+	height: 10px;
+}
+
+.ok_icon {
+	.icons;
+	background-image: url('../images/ok_icon.gif');
+	
+	width: 35px;
+	height: 28px;
+}
+
+.section {
+	padding: 0.3em 2em;
+	h1 { margin-left: -0.5em }
+}
+
+.description {
+	font-weight: bold;
+	width: 8em;
+	float: left;
+}
+
+a.button {
+    background: transparent url('../images/bg_button_a.gif') no-repeat scroll top right;
+    color: #444;
+    display: block;
+    float: left;
+    font: normal 12px arial, sans-serif;
+    height: 24px;
+    margin-right: 6px;
+    padding-right: 18px; /* sliding doors padding */
+    text-decoration: none;
+    
+    span {
+	    background: transparent url('../images/bg_button_span.gif') no-repeat;
+	    display: block;
+	    line-height: 14px;
+	    padding: 5px 0 5px 18px;
+    }
+    
+    &:active {
+    	background-position: bottom right;
+    	color: #000;
+    	outline: none; /* hide dotted outline in Firefox */
+    	
+    	span {
+		    background-position: bottom left;
+		    padding: 6px 0 4px 18px; /* push text down 1px */
+		} 
+    }
+} 
+
+div.progressbar {
+	width: 100px;
+	height: 10px;
+	border: 1px solid black;
+	background-color: @lightGrey;
+    
+    div.progress {
+    	height: 100%;
+    	background-color: @darkBlue;
+    }
+}
+
+table.silverback {
+	tr.cancelled {
+		text-decoration: line-through;
+	}
+	td.NOT_IN {
+		color: red;
+	}
+	td.MONDAY, td.ASSIGNED_MONDAY {
+		color: purple;
+	}
+	td.TUESDAY, td.ASSIGNED_TUESDAY {
+		color: blue;
+	}	
+	td.ASSIGN_ME {
+		color: green;
+	}
+}
+
+table.silverback_select {
+	margin: 2em 0 10px 0;
+	
+	tr {
+	}
+	
+	th {
+		text-align: left;
+		padding: 1px 10px;
+	}
+	
+	td {
+		padding: 1px 10px;
+	}
+}
+
+tr.disabled{
+	color: @lightGrey;
+}
