@@ -1,7 +1,6 @@
 Congress Assistant
 ==================
-This is a PHP Web-Application initially created for the ESEB 2011 Congress in Tübingen
-It is based primarily on the [CodeIgniter](http://ellislab.com/codeigniter "CodeIgniter") framework.
+This is a PHP Web-Application based on the [CodeIgniter](http://ellislab.com/codeigniter "CodeIgniter") framework and initially created for the ESEB 2011 Congress in Tübingen.
 
 Its purposes were:
 
