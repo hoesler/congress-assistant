@@ -1,16 +1,11 @@
-define(["jquery", "ckeditor", "backbone"], function() {
+define(["jquery", "ckeditor", "backbone", "log4javascript"], function(jquery, ckeditor, backbone, log4javascript) {
+
+	var logger = log4javascript.getLogger("SlideEditor");
+	logger.addAppender(new log4javascript.BrowserConsoleAppender());
 
 	var SlideEditor = {
 		Config: {
-			base_url: '',
-			log_level: 1 // 0 => Off, 1 => ERROR, 2 => WARN, 3 => INFO, 4 => DEBUG/LOG
-		},
-		Logger: {
-			log: function (message) { window.console && console.log && SlideEditor.Config.log_level >= 4 && console.log(message); },
-			debug: function (message) { window.console && console.debug && SlideEditor.Config.log_level >= 4  && console.debug(message); },
-			info: function (message) { window.console && console.info && SlideEditor.Config.log_level >= 3  && console.info(message); },
-			warn: function (message) { window.console && console.warn && SlideEditor.Config.log_level >= 2  && console.warn(message); },
-			error: function (message) { window.console && console.error && SlideEditor.Config.log_level >= 1  && console.error(message); }
+			base_url: ''
 		}
 	};
 
@@ -89,7 +84,7 @@ define(["jquery", "ckeditor", "backbone"], function() {
 		
 		appendModel: function (slideModel) {
 			if (slideModel === undefined) {
-				SlideEditor.Logger.error('slideModel is undefined');
+				logger.error('slideModel is undefined');
 				return;
 			}
 			
@@ -112,7 +107,7 @@ define(["jquery", "ckeditor", "backbone"], function() {
 			if (slideModel === undefined || !this.model.contains(slideModel)) {
 				return;
 			}
-			ESlideEditor.Logger.warn('Not implemented yet');
+			Elogger.warn('Not implemented yet');
 		},
 		
 		scrollToSelectedElement: function () {
@@ -122,7 +117,7 @@ define(["jquery", "ckeditor", "backbone"], function() {
 		setSelectedElement: function (model) {
 			if (model !== undefined &&
 				!this.model.contains(model)) {
-					SlideEditor.Logger.warn('model not an element of this views collection');
+					logger.warn('model not an element of this views collection');
 					return;
 			}
 			
@@ -229,16 +224,16 @@ define(["jquery", "ckeditor", "backbone"], function() {
 				
 				this.slideModel.save({}, {
 					success: function (model, response) {
-						SlideEditor.Logger.debug("Model was saved");
+						logger.debug("Model was saved");
 						self.setModified(false);
 					},
 					error: function (model, response) {
-						SlideEditor.Logger.error("Model could not be saved");
+						logger.error("Model could not be saved");
 					}
 				});
 			}
 			else {
-				SlideEditor.Logger.debug('slideModel is undefined');
+				logger.debug('slideModel is undefined');
 			}
 		}
 	});

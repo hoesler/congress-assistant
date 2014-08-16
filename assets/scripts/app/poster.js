@@ -1,17 +1,12 @@
-define(["jquery", "json2", "backbone"], function() {
+define(["jquery", "json2", "backbone", "log4javascript"], function(jquery, json2, backbone, log4javascript) {
 	
+	var logger = log4javascript.getLogger("PosterApp");
+	logger.addAppender(new log4javascript.BrowserConsoleAppender());
+
 	var PosterApp = {
 		Config: {
 			base_url: '',
-			max_selections: 5,
-			log_level: 0 // 0 => Off, 1 => ERROR, 2 => WARN, 3 => INFO, 4 => DEBUG/LOG
-		},
-		Logger: {
-			log: function (message) { window.console && console.log && PosterApp.Config.log_level >= 4 && console.log(message); },
-			debug: function (message) { window.console && console.debug && PosterApp.Config.log_level >= 4  && console.debug(message); },
-			info: function (message) { window.console && console.info && PosterApp.Config.log_level >= 3  && console.info(message); },
-			warn: function (message) { window.console && console.warn && PosterApp.Config.log_level >= 2  && console.warn(message); },
-			error: function (message) { window.console && console.error && PosterApp.Config.log_level >= 1  && console.error(message); }
+			max_selections: 5
 		}
 	};
 
@@ -49,7 +44,7 @@ define(["jquery", "json2", "backbone"], function() {
 			if (this.participantUUID) {
 				url += '&exclude_uuid=' + this.participantUUID;
 			}
-			PosterApp.Logger.log(url);
+			logger.debug(url);
 			return url;
 		}
 	});
@@ -86,7 +81,7 @@ define(["jquery", "json2", "backbone"], function() {
 		},
 		
 		triggerSavedEvent: function () {
-			PosterApp.Logger.log("saved");
+			logger.debug("saved");
 			this.trigger('saved', this);
 		}
 	});
@@ -211,12 +206,12 @@ define(["jquery", "json2", "backbone"], function() {
 		},
 		
 		modelAdded: function (model) {
-			PosterApp.Logger.log('modelAdded');
+			logger.debug('modelAdded');
 			this.render();
 		},
 		
 		modelRemoved: function (model) {
-			PosterApp.Logger.log('modelRemoved');
+			logger.debug('modelRemoved');
 			this.render();
 		},
 		
