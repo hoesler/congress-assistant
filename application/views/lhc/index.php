@@ -5,22 +5,11 @@
 	<title>Lecture Hall Client</title>
 	
 	<link rel="stylesheet/less" type="text/css" href="<?= site_url('assets/styles/lhc.less') ?>"> 
-	<script type="text/javascript" src="<?= site_url('assets/scripts/less.js') ?>"></script>
-	<script type="text/javascript" src="<?= site_url('assets/scripts/soundmanager2-nodebug-jsmin.js') ?>"></script>
-	<script type="text/javascript">
-		soundManager.url = '<?= site_url('assets/swf/') ?>';
-	</script>
-	<script type="text/javascript" src="<?= site_url('assets/scripts/date.format.js') ?>"></script>
-	<script type="text/javascript" src="<?= site_url('assets/scripts/jquery.js') ?>"></script> 	  
-	<script type="text/javascript" src="<?= site_url('assets/scripts/jquery-ui.js') ?>"></script>
-	<script type="text/javascript" src="<?= site_url('assets/scripts/json2.js') ?>"></script>
-	<script type="text/javascript" src="<?= site_url('assets/scripts/underscore.js') ?>"></script>
-	<script type="text/javascript" src="<?= site_url('assets/scripts/backbone.js') ?>"></script>
 
 	<script type="text/template" id="lhc_event_template">
 		<div class="discussion"></div>
 		<div class="lhc_event_info <%= type %>" title="<%= contributionKey %>">
-		<div class="time"><%= Date.fromMySQL(startTime).format("HH:MM") %></div>
+		<div class="time"><%= moment(startTime).format("HH:mm") %></div>
 		<div class="contributor"><%= firstName + ' ' + lastName %></div>
 		<div class="title"><%= title %></div>
 		</div>
@@ -36,12 +25,13 @@
 		<div class="content"><%= content %></div>
 	</script>
 
-	<script type="text/javascript" src="<?= site_url('assets/scripts/lhc.js') ?>"></script>
-
-	<script type="text/javascript">
-		$(function () {
-			new LectureHallClient.ApplicationController({config: {base_url: '<?= base_url(); ?>', log_level: 2}});
-			Backbone.history.start({root: "<?= site_url('lhc/') ?>"})
+	<script type="text/javascript" src="<?= site_url('assets/bower_components/requirejs/require.js') ?>"></script>
+	<script type="text/javascript" src="<?= site_url('assets/scripts/config.js') ?>"></script>
+	<script type="text/javascript">		
+		require(['less', 'moment'])
+		require(['scripts/lhc', 'backbone'], function(lhc, backbone) {
+			new lhc.ApplicationController({config: {base_url: '<?= base_url(); ?>', log_level: 2}});
+			backbone.history.start({root: "<?= site_url('lhc/') ?>"})
 		});
 	</script>
 	

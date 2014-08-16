@@ -1,0 +1,29 @@
+{
+  "name": "congress-assistant",
+  "version": "1.0.0",
+  "homepage": "https://github.com/hoesler/congress-assistant",
+  "authors": [
+    "Christoph Hösler <christoph.hoesler@gmail.com>"
+  ],
+  "main": "index.php",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.1.2",
+    "ckeditor": "~4.4.3",
+    "jquery": "~2.1.1",
+    "jquery-ui": "~1.11.1",
+    "json2": "*",
+    "less": "1.7.4",
+    "soundmanager2": "*",
+    "requirejs": "~2.1.14",
+    "log4javascript": "~1.4.9",
+    "moment": "~2.8.1"
+  }
+}

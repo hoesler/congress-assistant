@@ -4,7 +4,7 @@ This is a PHP Web-Application based on the [CodeIgniter](http://ellislab.com/cod
 
 Its purposes are:
 
-* Synchronizing the time slots for talks in multiple lecture halls, by displaying a countdown during talks and a timeline of upcoming events and customizable slides for announcements between them. This is implemented via a [backbone.js](http://backbonejs.org/ "backbone.js") based frontend (Time synchronization is done by continuously fetching a master time from the the server).
+* Synchronizing the time slots for talks in multiple lecture halls, by displaying a countdown during talks and a timeline of upcoming events and customizable slides for announcements between them. This is implemented via a [backbone.js](http://backbonejs.org/ "backbone.js") based frontend and reffered to as *LectureHallClient* (Time synchronization is done by continuously fetching a master time from the the server).
 * Serving webpages to assist in organizing activities (In Tübingen: Meet a Silverback, Poster Invitations, ...)
 * Sending personalized emails to different groups of attendants
 
@@ -17,7 +17,7 @@ Basic Installation Instructions
 
 Usage
 -----
-...
+The LectureHallClient is available at ```<URL_ROOT>/lhc#<ROOM>``` where ROOM is the group of data it should fetch. You can also simulate a certain time (and disable time synchronization) by adding time as a second parameter like this: ```<URL_ROOT>/lhc#<ROOM>/<Y-m-d_H:i:s>```
 
 Sending emails should be done via a cron task executing 'php $WEB_HOME/index.php cron sendmail'
 

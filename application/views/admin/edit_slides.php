@@ -1,20 +1,20 @@
-	
-	<script type="text/javascript" src="<?= site_url('assets/scripts/jquery.js') ?>"></script>
-	<script type="text/javascript" src="<?= site_url('assets/ckeditor/ckeditor.js') ?>"></script>
-	<script type="text/javascript" src="<?= site_url('assets/scripts/underscore.js') ?>"></script>
-	<script type="text/javascript" src="<?= site_url('assets/scripts/backbone.js') ?>"></script>
-
-
 	<script type="text/template" id="bse_slide_template">
 		<%= title %>
 		<div class="delete">x</div>
 	</script>	
 
-	<script type="text/javascript" src="<?= site_url('assets/scripts/slide_editor.js') ?>"></script>
-
 	<link rel="stylesheet/less" type="text/css" href="<?= site_url('assets/styles/slides.less') ?>">
-	<script src="<?= site_url('assets/scripts/less.js') ?>" type="text/javascript"></script>
 	
+	<script type="text/javascript" src="<?= site_url('assets/bower_components/requirejs/require.js') ?>"></script>
+	<script type="text/javascript" src="<?= site_url('assets/scripts/config.js') ?>"></script>
+	<script type="text/javascript">
+		require(['less']);
+		require(['scripts/slide_editor', 'backbone'], function(slide_editor, backbone) {
+			new slide_editor.ApplicationController({config: {base_url: '<?= base_url(); ?>'}});
+	    	backbone.history.start({root: "<?= site_url('/admin/slides/') ?>"});
+		});
+	</script>
+
 	<div class="section">
 	
 		<h1>Edit slides</h1>
@@ -54,10 +54,3 @@
 		
 		</form>
 	</div>
-	
-<script type="text/javascript">
-	$(function () {
-	    new SlideEditor.ApplicationController({config: {base_url: '<?= base_url(); ?>'}});
-	    Backbone.history.start({root: "<?= site_url('/admin/slides/') ?>"});
-	});
-</script>  

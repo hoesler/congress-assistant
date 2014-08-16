@@ -74,3 +74,6 @@ assets/ckfinder/userfiles/**/*
 assets/captcha/*.jpg
 !**/.htaccess
 !.gitignore
+data/
+assets/bower_components/
+node_modules/

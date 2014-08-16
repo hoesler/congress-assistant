@@ -1,11 +1,5 @@
 <link rel="stylesheet/less" type="text/css" href="<?= site_url('assets/styles/poster.less') ?>">
 
-<script type="text/javascript" src="<?= site_url('assets/scripts/date.format.js') ?>"></script>
-<script type="text/javascript" src="<?= site_url('assets/scripts/jquery.js') ?>"></script> 
-<script type="text/javascript" src="<?= site_url('assets/scripts/json2.js') ?>"></script>
-<script type="text/javascript" src="<?= site_url('assets/scripts/underscore.js') ?>"></script>          
-<script type="text/javascript" src="<?= site_url('assets/scripts/backbone.js') ?>"></script>
-
 <script type="text/template" id="poster_participant_template">
 	<input type="checkbox"/>
 	<div class="name">
@@ -22,8 +16,17 @@
 	<div class="info"><%= [organization,department].filter(function(val) { return /^.+$/.test(val); }).join(", ") %></div>
 </script>
 
-<script type="text/javascript" src="<?= site_url('assets/scripts/poster.js') ?>"></script>
-
+<script type="text/javascript" src="<?= site_url('assets/bower_components/requirejs/require.js') ?>"></script>
+<script type="text/javascript" src="<?= site_url('assets/scripts/config.js') ?>"></script>
+<script type="text/javascript">
+	require(['less']);
+	require(['scripts/poster'], function(poster_app) {
+		var regexResultArray = /^.*\/poster\/index\/(.+)$/.exec(window.location.pathname);
+		if (regexResultArray.length > 1) {
+	    	new poster_app.AppView({uuid: regexResultArray[1], config: {base_url: '<?= base_url(); ?>'}});
+	    }
+	});
+</script>
 
 <div class="section">
 	<h1>Meet me at my poster</h1>
@@ -59,14 +62,3 @@
 		</div>
 	</div>
 </div>
-
-
-
-<script type="text/javascript">
-	$(function () {
-		var regexResultArray = /^.*\/poster\/index\/(.+)$/.exec(window.location.pathname);
-		if (regexResultArray.length > 1) {
-	    	new PosterApp.AppView({uuid: regexResultArray[1], config: {base_url: '<?= base_url(); ?>'}});
-	    }
-	});
-</script> 

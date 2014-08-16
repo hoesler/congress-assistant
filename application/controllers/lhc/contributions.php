@@ -22,7 +22,7 @@ class Contributions extends CI_Controller {
 		$this->db->where('hasCancelled', '0');
 		$this->db->where('room', $room);
 		$this->db->where('date(startTime)', $day);
-		$this->db->where('contributions.type IS NOT NULL', NULL, FALSE);
+		$this->db->where('contributions.type IS NOT NULL', NULL);
 		$query = $this->db->get('contributions');
 		
 		echo json_encode($query->result());
