@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="<?= site_url('assets/scripts/config.js') ?>"></script>
 	<script type="text/javascript">
 		require(['less']);
-		require(['scripts/slide_editor', 'backbone'], function(slide_editor, backbone) {
+		require(['scripts/app/slide_editor', 'backbone'], function(slide_editor, backbone) {
 			new slide_editor.ApplicationController({config: {base_url: '<?= base_url(); ?>'}});
 	    	backbone.history.start({root: "<?= site_url('/admin/slides/') ?>"});
 		});

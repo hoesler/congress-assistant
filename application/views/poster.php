@@ -20,7 +20,7 @@
 <script type="text/javascript" src="<?= site_url('assets/scripts/config.js') ?>"></script>
 <script type="text/javascript">
 	require(['less']);
-	require(['scripts/poster'], function(poster_app) {
+	require(['scripts/app/poster'], function(poster_app) {
 		var regexResultArray = /^.*\/poster\/index\/(.+)$/.exec(window.location.pathname);
 		if (regexResultArray.length > 1) {
 	    	new poster_app.AppView({uuid: regexResultArray[1], config: {base_url: '<?= base_url(); ?>'}});

@@ -1,5 +1,5 @@
-define(["backbone", "soundmanager2", "jquery", "json2", "log4javascript", "scripts/utils", "moment"],
-	function(backbone, soundmanager2, jquery, json2, log4javascript, utils, moment) {
+define(["backbone", "soundmanager2", "jquery", "json2", "log4javascript", "scripts/utils/number", "moment"],
+	function(backbone, soundmanager2, jquery, json2, log4javascript, number_util, moment) {
 	
 		var logger = log4javascript.getLogger("LectureHallClient");
 		logger.addAppender(new log4javascript.BrowserConsoleAppender());

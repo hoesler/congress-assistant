@@ -29,7 +29,7 @@
 	<script type="text/javascript" src="<?= site_url('assets/scripts/config.js') ?>"></script>
 	<script type="text/javascript">		
 		require(['less', 'moment'])
-		require(['scripts/lhc', 'backbone'], function(lhc, backbone) {
+		require(['scripts/app/lhc', 'backbone'], function(lhc, backbone) {
 			new lhc.ApplicationController({config: {base_url: '<?= base_url(); ?>', log_level: 2}});
 			backbone.history.start({root: "<?= site_url('lhc/') ?>"})
 		});
