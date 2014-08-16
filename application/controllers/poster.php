@@ -2,23 +2,23 @@
 
 class Poster extends CI_Controller {
 
-	var $activity_end_date = "30 July 2011 4pm";
+	var $activity_end_date = "30 July 2015 4pm";
 
 	function __construct()
 	{
 	    parent::__construct();
 	    $this->load->model('Participant_model', 'participant');
-	    
-	    
+	        
 	    $uuid = $this->uri->segment(3);
 	    		 		
 	    if ($this->participant->from_uuid($uuid) === FALSE) {
-	    	show_404('');
+	    	// TODO: show a better error page
+	    	show_error('No a valid UUID');
 	    }
 	    else {
 	    	if ($this->participant->level != 'STUDENT'
 	    		&& $this->participant->level != 'COMMITTEE') {
-	    		// TODO: show error page
+	    		// TODO: show a better error page
 	    		show_error("You're not a student");
 	    	}
 	    	
