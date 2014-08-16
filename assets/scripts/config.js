@@ -1,5 +1,5 @@
 requirejs.config({
-  baseUrl: "assets",
+  baseUrl: "/assets",
   shim: {
     'soundmanager2': {
       exports: 'soundManager',
