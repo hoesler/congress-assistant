@@ -202,20 +202,6 @@ CREATE TABLE `symposia` (
 EOT
 );
 
-		## Create Table timetable
-		$this->db->query(<<<'EOT'
-CREATE TABLE `timetable` (
-  `id` int(11) NOT NULL auto_increment,
-  `startTime` datetime NOT NULL,
-  `duration` int(11) NOT NULL,
-  `room` enum('LECTURE_HALL_N11','LECTURE_HALL_N12') collate utf8_unicode_ci default NULL,
-  `type` enum('WELCOME','PLENARY_TALK','GENERAL_SESSION','SYMPOSIA_SESSION','POSTER_PRESENTATION') collate utf8_unicode_ci NOT NULL,
-  `info` text collate utf8_unicode_ci,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
-EOT
-);
-
 		## Create Table user_autologin
 		$this->db->query(<<<'EOT'
 CREATE TABLE `user_autologin` (
@@ -294,8 +280,6 @@ EOT
 		$this->dbforge->drop_table("silverback_student_map", TRUE);
 		### Drop table symposia ##
 		$this->dbforge->drop_table("symposia", TRUE);
-		### Drop table timetable ##
-		$this->dbforge->drop_table("timetable", TRUE);
 		### Drop table user_autologin ##
 		$this->dbforge->drop_table("user_autologin", TRUE);
 		### Drop table user_profiles ##

@@ -27,7 +27,6 @@ define(["backbone", "soundmanager2", "jquery", "json2", "log4javascript", "scrip
 			}
 		};
 
-
 		LectureHallClient.ClockModel = Backbone.Model.extend({
 
 			defaults: {
@@ -739,14 +738,21 @@ define(["backbone", "soundmanager2", "jquery", "json2", "log4javascript", "scrip
 				});
 
 				this.view = new LectureHallClient.AppView();
+				
+				this.route("", "selectRoom", function () {
+					alert("append a room name to the url, e.g /lhc#N4 if room is named N4");
+					// TODO Add a model for rooms and add dialog for room selection
+				});
+
 				this.route(":room", "switchRoom", function (room) {
 					this.view.enableTimeSync(true);
 					this.view.setRoom(room);
 				});
+				
 				this.route(":room/:time", "switchRoomAndSimulateTime", function (room, time) {  
-		        this.view.simulateTime(time.replace(/_/, ' ')); // e.g. 2011-09-24_12:34:03
-		        this.view.setRoom(room);
-		    });
+			        this.view.simulateTime(time.replace(/_/, ' ')); // e.g. 2011-09-24_12:34:03
+			        this.view.setRoom(room);
+			    });
 			}
 		});
 

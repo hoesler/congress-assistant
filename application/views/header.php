@@ -4,7 +4,7 @@
 <head>
 <?php echo meta('Content-type', 'text/html; charset='.config_item('charset'), 'equiv');?>
 
-<title>ESEB 2011 | PhD Activities</title>
+<title>Congress Assistant</title>
 
 <link rel="stylesheet/less" type="text/css" href="<?= site_url('assets/styles/base.less') ?>">
 

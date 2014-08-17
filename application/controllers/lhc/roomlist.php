@@ -11,7 +11,8 @@ class Roomlist extends CI_Controller {
 	function index() {
 		$this->db->select('room');
 		$this->db->group_by('room');
-		$query = $this->db->get('timetable');
+		$this->db->where(array('room IS NOT NULL' => NULL));
+		$query = $this->db->get('contributions');
 				
 		$rooms = array();
 		foreach( $query->result() as $row) {
