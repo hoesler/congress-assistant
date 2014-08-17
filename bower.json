@@ -9,15 +9,15 @@
   "main": "index.php",
   "license": "MIT",
   "dependencies": {
-    "backbone": "~1.1.2",
-    "ckeditor": "~4.4.3",
-    "jquery": "~2.1.1",
-    "jquery-ui": "~1.11.1",
-    "json2": "*",
+    "backbone": "1.1.2",
+    "ckeditor": "4.4.3",
+    "jquery": "2.1.1",
+    "jquery-ui": "1.11.1",
+    "json2": "3d7767b6b1",
     "less": "1.7.4",
-    "soundmanager2": "*",
-    "requirejs": "~2.1.14",
-    "log4javascript": "~1.4.9",
-    "moment": "~2.8.1"
+    "soundmanager2": "b7ad5f5ace",
+    "requirejs": "2.1.14",
+    "log4javascript": "1.4.9",
+    "moment": "2.8.1"
   }
 }
