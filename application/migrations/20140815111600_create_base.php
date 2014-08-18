@@ -31,7 +31,7 @@ CREATE TABLE `contributions` (
   `summary` text collate utf8_unicode_ci,
   `contributionKey` varchar(20) collate utf8_unicode_ci NOT NULL,
   `startTime` datetime default NULL,
-  `room` enum('N0','N1','N2','N3','N4','N5','N6','N7','N9') collate utf8_unicode_ci default NULL,
+  `room` varchar(255) collate utf8_unicode_ci default NULL,
   `type` enum('PLENARY_TALK','INVITED_TALK','ORAL_PRESENTATION','REGULAR_POSTER','ESSENCE_POSTER') collate utf8_unicode_ci NOT NULL,
   `endTime` datetime default NULL,
   `pdfReceived` tinyint(1) default NULL,
@@ -39,6 +39,7 @@ CREATE TABLE `contributions` (
   UNIQUE KEY `contributionKey` (`contributionKey`),
   UNIQUE KEY `participantId` (`participantId`),
   KEY `symposiumId` (`symposiumId`),
+  KEY `room` (`room`),
   CONSTRAINT `contributions_ibfk_2` FOREIGN KEY (`symposiumId`) REFERENCES `symposia` (`id`),
   CONSTRAINT `contributions_ibfk_3` FOREIGN KEY (`participantId`) REFERENCES `participants` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1091 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
