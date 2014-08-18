@@ -74,3 +74,5 @@ assets/ckfinder/userfiles/**/*
 assets/captcha/*.jpg
 !**/.htaccess
 !.gitignore
+node_modules/
+data/

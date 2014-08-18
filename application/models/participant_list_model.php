@@ -116,7 +116,14 @@ class Participant_list_model extends CI_Model {
 			}
 			
 			if (!empty($this->contributions)) {
-				$this->db->where('EXISTS (SELECT * FROM '.$this->db->dbprefix('contributions').' WHERE '.$this->db->dbprefix('contributions').'.participantId = '.$this->db->dbprefix('participants').'.id AND '.$this->db->dbprefix('contributions').'.type IN('.implode(",", array_map(create_function('$el', 'return "\'".mysql_real_escape_string($el)."\'";'), $this->contributions)).'))', NULL, FALSE);				
+				$this->db->where('EXISTS (SELECT * FROM '.$this->db->dbprefix('contributions')
+					. ' WHERE '.$this->db->dbprefix('contributions') . '.participantId = ' . $this->db->dbprefix('participants').'.id'
+					. ' AND '.$this->db->dbprefix('contributions') . '.type IN('
+						. implode(",", array_map(
+							create_function('$el', 'return "\'".$this->db->escape($el)."\'";'),
+							$this->contributions))
+						. '))',
+				NULL, FALSE);				
 			}
 			
 			if (!is_null($this->lastName)) {

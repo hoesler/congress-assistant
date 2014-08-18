@@ -41,7 +41,7 @@ class Participants extends CI_Controller {
 		$listModel = new Participant_list_model();
 		
 		if ($this->input->get('level')) {
-			foreach (split(",", $this->input->get('level')) as $part ) {
+			foreach (explode(",", $this->input->get('level')) as $part ) {
 				$listModel->level($part);
 			}
 		}
@@ -51,7 +51,7 @@ class Participants extends CI_Controller {
 		}
 		
 		if ($this->input->get('contribution')) {
-			foreach (split(",", $this->input->get('contribution')) as $part ) {
+			foreach (explode(",", $this->input->get('contribution')) as $part ) {
 				$listModel->contribution($part);
 			}				
 		}
@@ -65,7 +65,7 @@ class Participants extends CI_Controller {
 		}
 		
 		if ($this->input->get('exclude_uuid')) {
-			foreach (split(",", $this->input->get('exclude_uuid')) as $part ) {
+			foreach (explode(",", $this->input->get('exclude_uuid')) as $part ) {
 				$listModel->exclude_uuid($part);
 			}
 		}
