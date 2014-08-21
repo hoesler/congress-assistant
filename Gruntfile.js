@@ -1,5 +1,9 @@
+'use strict';
+
 module.exports = function(grunt) {
-  	'use strict';
+	
+	var shell = require('shelljs');
+
 	grunt.initConfig({
 	    pkg: grunt.file.readJSON('package.json'),
 	    php: {
@@ -14,6 +18,14 @@ module.exports = function(grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-php');
+	
+	grunt.registerTask('db:migrate', 'Run database migration', function() {
+	  var cmd = shell.exec('php index.php migrate', { silent: true });
+	  if (cmd.code != 0) {
+	  	grunt.log.error(cmd.output);
+	  	return false;
+	  }
 
-	grunt.registerTask('test', ['php']);
+	  return true;
+	});
 };
